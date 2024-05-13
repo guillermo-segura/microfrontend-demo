@@ -8,7 +8,8 @@ const domain = process.env.PRODUCTION_DOMAIN;
 const prodConfig = {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].js' // Content hash is added to handle cache issues
+    filename: '[name].[contenthash].js', // Content hash is added to handle cache issues
+    publicPath: '/container/latest/', // Fix issue on main.js script when accessing the app through our CDN
   },
   plugins: [
     new ModuleFederationPlugin({
