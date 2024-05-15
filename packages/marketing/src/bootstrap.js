@@ -5,7 +5,9 @@ import { createMemoryHistory, createBrowserHistory } from 'history';
 import App from './App';
 
 const mount = (element, options) => {
-  const history = options.defaultHistory || createMemoryHistory();
+  const history = options.defaultHistory || createMemoryHistory({
+    initialEntries: [options?.initialPath],
+  });
 
   if (options?.onNavigate) {
     history.listen(options.onNavigate);
