@@ -13,7 +13,7 @@ const mount = (element, options) => {
     history.listen(options.onNavigate);
   }
 
-  ReactDOM.render(<App history={history} />, element);
+  ReactDOM.render(<App history={history} onSignIn={options?.onSignIn} />, element);
 
   return {
     onParentNavigate: ({ pathname: nextPathname }) => {
